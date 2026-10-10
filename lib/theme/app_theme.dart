@@ -12,18 +12,17 @@ class AppBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: double.infinity,
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [Color(0xFF05001A), Color(0xFF0B0838), Color(0xFF2A0B55), Color(0xFFA81F6B)],
-          stops: [0.0, 0.45, 0.8, 1.0],
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        Container(color: const Color(0xFF05001A)),
+        Image.asset(
+          'assets/images/background_image_AI_APP.png',
+          fit: BoxFit.cover,
+          alignment: const Alignment(0.2, 0),
         ),
-      ),
-      child: child,
+        child,
+      ],
     );
   }
 }
