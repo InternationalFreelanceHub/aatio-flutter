@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../ads/ad_service.dart';
 import '../data/tools.dart';
 import '../theme/app_theme.dart';
+import 'premium_screen.dart';
 import 'tool_screen.dart';
 
 class PopularScreen extends StatefulWidget {
@@ -20,11 +21,6 @@ class _PopularScreenState extends State<PopularScreen> {
     });
   }
 
-  void _premiumSoon() {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('AATIO\'S Premium is coming in the next step')),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +67,7 @@ class _PopularScreenState extends State<PopularScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     InkWell(
-                      onTap: _premiumSoon,
+                      onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const PremiumScreen())),
                       borderRadius: BorderRadius.circular(30),
                       child: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 14),
