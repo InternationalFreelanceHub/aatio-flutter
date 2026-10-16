@@ -4,9 +4,10 @@ import 'ad_ids.dart';
 
 class AdService {
   static DateTime? _lastInterstitial;
-  static const Duration _cooldown = Duration(seconds: 75);
+  static const Duration _cooldown = Duration(seconds: 90);
 
   static void init() {
+    _lastInterstitial = DateTime.now().subtract(const Duration(seconds: 45));
     MobileAds.instance.initialize();
   }
 

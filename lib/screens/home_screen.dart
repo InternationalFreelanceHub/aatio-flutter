@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
+import 'popular_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,7 +11,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _button(BuildContext context, String label) {
+  Widget _button(String label, VoidCallback onTap) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 22),
       child: SizedBox(
@@ -22,7 +23,7 @@ class HomeScreen extends StatelessWidget {
             foregroundColor: Colors.white,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
           ),
-          onPressed: () => _comingSoon(context, label),
+          onPressed: onTap,
           child: Text(
             label,
             style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold, fontFamily: 'serif'),
@@ -45,10 +46,12 @@ class HomeScreen extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      _button(context, 'Popular'),
-                      _button(context, 'AI Dictionary'),
-                      _button(context, 'Advanced Search'),
-                      _button(context, 'Favourites'),
+                      _button('Popular', () => Navigator.of(context).push(
+                            MaterialPageRoute(builder: (_) => const PopularScreen()),
+                          )),
+                      _button('AI Dictionary', () => _comingSoon(context, 'AI Dictionary')),
+                      _button('Advanced Search', () => _comingSoon(context, 'Advanced Search')),
+                      _button('Favourites', () => _comingSoon(context, 'Favourites')),
                     ],
                   ),
                 ),
