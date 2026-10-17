@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
 import 'popular_screen.dart';
+import 'advanced_search_screen.dart';
 import 'favourites_screen.dart';
 import 'dictionary_index_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  void _comingSoon(BuildContext context, String name) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('$name is coming in the next step')),
-    );
-  }
 
   Widget _button(String label, VoidCallback onTap) {
     return Padding(
@@ -52,7 +48,7 @@ class HomeScreen extends StatelessWidget {
                             MaterialPageRoute(builder: (_) => const PopularScreen()),
                           )),
                       _button('AI Dictionary', () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const DictionaryIndexScreen()))),
-                      _button('Advanced Search', () => _comingSoon(context, 'Advanced Search')),
+                      _button('Advanced Search', () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const AdvancedSearchScreen()))),
                       _button('Favourites', () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const FavouritesScreen()))),
                     ],
                   ),
