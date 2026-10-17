@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../ads/ad_service.dart';
+import '../data/favourites_manager.dart';
 import '../data/tools.dart';
 import '../theme/app_theme.dart';
 
@@ -51,12 +52,37 @@ class _ToolScreenState extends State<ToolScreen> {
         child: SafeArea(
           child: Column(
             children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: IconButton(
-                  icon: const Icon(Icons.arrow_back_ios_new, color: Colors.white, size: 22),
-                  onPressed: () => Navigator.of(context).maybePop(),
-                ),
+              Row(
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.arrow_back_ios_new, color: Colors.white, size: 22),
+                    onPressed: () => Navigator.of(context).maybePop(),
+                  ),
+                  const Spacer(),
+                  ValueListenableBuilder<List<String>>(
+                    valueListenable: FavouritesManager.names,
+                    builder: (context, names, _) {
+                      final fav = names.contains(tool.name);
+                      return IconButton(
+                        icon: Icon(
+                          fav ? Icons.favorite : Icons.favorite_border,
+                          color: fav ? Colors.pinkAccent : Colors.white,
+                          size: 26,
+                        ),
+                        onPressed: () {
+                          FavouritesManager.toggle(tool.name);
+                          ScaffoldMessenger.of(context).clearSnackBars();
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              duration: const Duration(seconds: 1),
+                              content: Text(fav ? 'Removed from Favourites' : 'Added to Favourites'),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                  ),
+                ],
               ),
               Expanded(
                 child: Center(

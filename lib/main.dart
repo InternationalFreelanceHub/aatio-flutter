@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'ads/ad_service.dart';
+import 'data/favourites_manager.dart';
 import 'screens/welcome_screen.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   AdService.init();
+  await FavouritesManager.load();
   runApp(const AatioApp());
 }
 

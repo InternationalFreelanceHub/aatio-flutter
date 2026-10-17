@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
 import 'popular_screen.dart';
+import 'favourites_screen.dart';
 import 'dictionary_index_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -52,7 +53,7 @@ class HomeScreen extends StatelessWidget {
                           )),
                       _button('AI Dictionary', () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const DictionaryIndexScreen()))),
                       _button('Advanced Search', () => _comingSoon(context, 'Advanced Search')),
-                      _button('Favourites', () => _comingSoon(context, 'Favourites')),
+                      _button('Favourites', () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const FavouritesScreen()))),
                     ],
                   ),
                 ),
