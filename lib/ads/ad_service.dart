@@ -4,6 +4,7 @@ import 'ad_ids.dart';
 
 class AdService {
   static DateTime? _lastInterstitial;
+  static DateTime? lastAdShown;
   static const Duration _cooldown = Duration(seconds: 90);
 
   static void init() {
@@ -32,6 +33,7 @@ class AdService {
             onAdFailedToShowFullScreenContent: (ad, error) => ad.dispose(),
           );
           _lastInterstitial = DateTime.now();
+          lastAdShown = DateTime.now();
           ad.show();
         },
         onAdFailedToLoad: (error) {},

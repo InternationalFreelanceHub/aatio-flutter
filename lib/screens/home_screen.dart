@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
+import '../data/review_prompt.dart';
 import '../theme/app_theme.dart';
-import 'popular_screen.dart';
 import 'advanced_search_screen.dart';
-import 'favourites_screen.dart';
 import 'dictionary_index_screen.dart';
+import 'favourites_screen.dart';
+import 'popular_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
+  // Opens a screen. When the user comes back to Home, the review prompt may be offered (rarely).
+  Future<void> _go(BuildContext context, Widget screen) async {
+    await Navigator.of(context).push(MaterialPageRoute(builder: (_) => screen));
+    await Future.delayed(const Duration(milliseconds: 800));
+    ReviewPrompt.maybeAsk();
+  }
 
   Widget _button(String label, VoidCallback onTap) {
     return Padding(
@@ -44,12 +51,10 @@ class HomeScreen extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      _button('Popular', () => Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => const PopularScreen()),
-                          )),
-                      _button('AI Dictionary', () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const DictionaryIndexScreen()))),
-                      _button('Advanced Search', () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const AdvancedSearchScreen()))),
-                      _button('Favourites', () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const FavouritesScreen()))),
+                      _button('Popular', () => _go(context, const PopularScreen())),
+                      _button('AI Dictionary', () => _go(context, const DictionaryIndexScreen())),
+                      _button('Advanced Search', () => _go(context, const AdvancedSearchScreen())),
+                      _button('Favourites', () => _go(context, const FavouritesScreen())),
                     ],
                   ),
                 ),

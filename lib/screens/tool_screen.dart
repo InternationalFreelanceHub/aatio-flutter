@@ -3,6 +3,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../ads/ad_service.dart';
 import '../data/favourites_manager.dart';
 import '../data/tools.dart';
+import '../data/review_prompt.dart';
 import '../theme/app_theme.dart';
 
 class ToolScreen extends StatefulWidget {
@@ -32,6 +33,7 @@ class _ToolScreenState extends State<ToolScreen> {
   }
 
   Future<void> _open() async {
+    ReviewPrompt.toolOpened();
     try {
       final ok = await launchUrl(
         Uri.parse(widget.tool.url),

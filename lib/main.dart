@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'ads/ad_service.dart';
 import 'data/favourites_manager.dart';
+import 'data/review_prompt.dart';
 import 'screens/welcome_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   AdService.init();
   await FavouritesManager.load();
+  await ReviewPrompt.init();
   runApp(const AatioApp());
 }
 
