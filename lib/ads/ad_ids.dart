@@ -9,18 +9,18 @@ class AdIds {
 
   // Real unit numbers. An empty string means the unit isn't created yet, so that ad is skipped.
   static const Map<String, String> _interstitials = {
-    'popular': '',
+    'popular': '1476878905',
     'chatgpt': '2683443705',
     'favourites': '2749520058',
-    'dictionary_index': '',
+    'dictionary_index': '6381283622',
     'perplexity': '9410571951',
   };
 
   static const Map<String, String> _banners = {
     'dictionary_d_f': '1167116707',
-    'claude': '',
-    'advanced_search': '',
-    'deepseek': '',
+    'claude': '5509738669',
+    'advanced_search': '8191851750',
+    'deepseek': '4776250651',
   };
 
   static String interstitial(String key) {
