@@ -64,6 +64,22 @@ flutter:
 
   assets:
     - assets/images/
+  fonts:
+    - family: SourceSans
+      fonts:
+        - asset: assets/fonts/SourceSans3-Regular.ttf
+        - asset: assets/fonts/SourceSans3-Semibold.ttf
+          weight: 600
+        - asset: assets/fonts/SourceSans3-Bold.ttf
+          weight: 700
+    - family: Merriweather
+      fonts:
+        - asset: assets/fonts/Merriweather-Regular.ttf
+        - asset: assets/fonts/Merriweather-Bold.ttf
+          weight: 700
+    - family: Lobster
+      fonts:
+        - asset: assets/fonts/Lobster-Regular.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:
@@ -96,22 +112,6 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
 
-  fonts:
-    - family: SourceSans
-      fonts:
-        - asset: assets/fonts/SourceSans3-Regular.ttf
-        - asset: assets/fonts/SourceSans3-Semibold.ttf
-          weight: 600
-        - asset: assets/fonts/SourceSans3-Bold.ttf
-          weight: 700
-    - family: Merriweather
-      fonts:
-        - asset: assets/fonts/Merriweather-Regular.ttf
-        - asset: assets/fonts/Merriweather-Bold.ttf
-          weight: 700
-    - family: Lobster
-      fonts:
-        - asset: assets/fonts/Lobster-Regular.ttf
 
 flutter_launcher_icons:
   android: true

@@ -22,6 +22,14 @@ class AatioApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(brightness: Brightness.dark, useMaterial3: true, fontFamily: 'SourceSans'),
       home: const WelcomeScreen(),
+      builder: (context, child) {
+        final mq = MediaQuery.of(context);
+        final scale = (mq.textScaler.scale(1.0) * 1.2).clamp(1.0, 1.5).toDouble();
+        return MediaQuery(
+          data: mq.copyWith(textScaler: TextScaler.linear(scale)),
+          child: child!,
+        );
+      },
     );
   }
 }
