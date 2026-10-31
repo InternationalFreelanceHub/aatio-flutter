@@ -64,7 +64,7 @@ class _PopularScreenState extends State<PopularScreen> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(24, 8, 24, 24),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     InkWell(
                       onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const PremiumScreen())),
@@ -89,6 +89,7 @@ class _PopularScreenState extends State<PopularScreen> {
                     const SizedBox(height: 8),
                     const Text(
                       'Discover the world\'s hidden supremes with AATIO',
+                      textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white, fontSize: 12),
                     ),
                   ],
