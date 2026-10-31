@@ -20,7 +20,7 @@ class AatioApp extends StatelessWidget {
     return MaterialApp(
       title: 'AATIO',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(brightness: Brightness.dark, useMaterial3: true),
+      theme: ThemeData(brightness: Brightness.dark, useMaterial3: true, fontFamily: 'SourceSans'),
       home: const WelcomeScreen(),
     );
   }

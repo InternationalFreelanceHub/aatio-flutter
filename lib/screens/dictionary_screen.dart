@@ -64,7 +64,7 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          fontFamily: 'serif',
+                          fontFamily: 'Merriweather',
                         ),
                       ),
                     ),

@@ -51,7 +51,7 @@ class AppHeader extends StatelessWidget {
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
-                fontFamily: 'serif',
+                fontFamily: 'Merriweather',
               ),
             ),
           ),

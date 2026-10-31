@@ -81,7 +81,7 @@ class _PopularScreenState extends State<PopularScreen> {
                             color: Colors.white,
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            fontFamily: 'serif',
+                            fontFamily: 'Merriweather',
                           ),
                         ),
                       ),

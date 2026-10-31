@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
           onPressed: onTap,
           child: Text(
             label,
-            style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold, fontFamily: 'serif'),
+            style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold, fontFamily: 'Merriweather'),
           ),
         ),
       ),

@@ -70,7 +70,7 @@ class _DictionaryIndexScreenState extends State<DictionaryIndexScreen> {
                           ),
                           child: Text(
                             letter,
-                            style: const TextStyle(color: _teal, fontSize: 16, fontFamily: 'serif'),
+                            style: const TextStyle(color: _teal, fontSize: 16, fontFamily: 'Merriweather'),
                           ),
                         ),
                       ),
