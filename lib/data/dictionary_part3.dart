@@ -12,7 +12,7 @@ const List<DictPage> dictPart3 = [
     DictEntry('Validator AI', '"Begin your entrepreneurial journey at no expense. Present your startup idea to our AI mentor and receive a free analysis. Interact endlessly with our AI mentor chatbot to gain essential insights for launching your startup. Start your path to success today, entirely free."'),
     DictEntry('Wolfram', '"Integrating Wolfram with ChatGPT provides access to real-time data, enhanced mathematical capabilities, and a carefully curated, mostly verified dataset. This integration helps resolve problems such as AI hallucinations, incorrect answers, and math errors, significantly improving ChatGPT\'s intelligence."'),
     DictEntry('10web', 'Create a website using AI Website Builder,\nhost it on 10Web Hosting, and optimize it with PageSpeed Booster.'),
-    DictEntry('X.ai.', 'X.ai is an AI-powered personal assistant designed to help manage scheduling and automate meeting coordination. It uses natural language processing to understand and schedule meetings based on your preferences.'),
+    DictEntry('X.ai.', 'X.ai is the home of xAI, the AI company behind the Grok assistant. Chat with Grok to ask questions, get help with writing and coding, and research any topic.'),
   ]),
   DictPage('X to Z AI Tools', [
     DictEntry('XGBoost', 'A powerful machine learning library used for scalable and accurate gradient boosting. It\'s widely used in data science for predictive modeling and competitions.'),

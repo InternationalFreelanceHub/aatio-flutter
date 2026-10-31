@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../ads/ad_service.dart';
 import '../data/dictionary.dart';
 import '../data/dictionary_models.dart';
+import '../data/dictionary_links.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../theme/app_theme.dart';
 
 class DictionaryScreen extends StatefulWidget {
@@ -103,6 +105,23 @@ class _DictPageView extends StatelessWidget {
   final DictPage page;
   const _DictPageView({required this.page});
 
+  void _error(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Could not open the link. Please try again.')),
+    );
+  }
+
+  Future<void> _open(BuildContext context, String name) async {
+    final url = dictionaryLinks[name];
+    if (url == null) return;
+    try {
+      final ok = await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+      if (!ok && context.mounted) _error(context);
+    } catch (_) {
+      if (context.mounted) _error(context);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -110,32 +129,35 @@ class _DictPageView extends StatelessWidget {
       itemCount: page.entries.length,
       itemBuilder: (context, i) {
         final e = page.entries[i];
-        return Container(
-          margin: const EdgeInsets.only(bottom: 14),
-          padding: const EdgeInsets.all(14),
-          decoration: BoxDecoration(
-            border: Border.all(color: AppColors.cardBorder),
-            borderRadius: BorderRadius.circular(18),
+        return Padding(
+          padding: const EdgeInsets.only(bottom: 14),
+          child: Material(
             color: Colors.black.withValues(alpha: 0.25),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                e.name,
-                style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 10),
-              Text(
-                e.text,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
-                  height: 1.35,
+            clipBehavior: Clip.antiAlias,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(18),
+              side: const BorderSide(color: AppColors.cardBorder),
+            ),
+            child: InkWell(
+              onTap: () => _open(context, e.name),
+              child: Padding(
+                padding: const EdgeInsets.all(14),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      e.name,
+                      style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      e.text,
+                      style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w600, height: 1.35),
+                    ),
+                  ],
                 ),
               ),
-            ],
+            ),
           ),
         );
       },
